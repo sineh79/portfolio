@@ -1,0 +1,64 @@
+@charset "utf-8";
+* {margin:0; padding:0}
+body { font-size:; font-family:' 맑은 고딕', 'Malgun Gothic', helvetica, Sans-serif; }
+.blind {position:absolute; width:1px; height:1px; overflow:hidden; margin:-1px; } 
+
+
+header { position:fixed; left:0; right:0; background:rgba(0,0,0,0.5); height:77px; z-index:1; }
+#header_in {margin:0 10px; }   
+header h1 { float:left; margin-top:20px;}	
+header h1 a { display:block; width:120px; height:32px; background:url(../img/logo_white.png) no-repeat; background-size:100%;  }	
+header ul{ float:right; margin-top:25px;}
+header ul li { display:inline-block; margin-left:50px; }
+header ul li a{ color:#fff; font-size:0.85em;   }
+
+.navInside:after { display:inline-block; content:''; width:1px; height:10px; margin:0 20px 0 40px; background:#ccc;}
+.navLocale { margin-left:20px;}
+li.on a, li a:hover { color:#FA2828 }
+
+
+#view {}
+	section { position:relative; background-size:cover; background-position:50%; }
+
+	#section1 { background-image:url('../img/bg_m1.jpg'); }
+	#section2 { background-image:url('../img/bg_m2.jpg');  }
+	#section3 { background-image:url('../img/bg_m3.jpg'); }
+	#section4 { background-image:url('../img/bg_m4.jpg'); }
+	#section5 { background-image:url('../img/bg_m5.jpg');  }
+	#section6 { background-image:url('../img/bg_m6.jpg'); }
+
+	.txtBox { position:absolute; top:33%; left:20%; color:#fff; } 
+	.txtBox h3 { font-size:3em; margin-bottom:20px; }
+	.txtBox p{ font-size:1.2em; line-height:1.5em}
+	.txtBox .btn_down { width:36px; height:19px; background:url(../img/sp_common_v3.png) no-repeat 0 -94px; margin-top:30px; cursor:pointer;}
+
+
+#remote { position:fixed; left:50px; top:45%;}
+#remote a { display:block; width:5px; height:5px; margin-bottom:10px; border:3px solid white; text-indent:-9999px; }
+#remote a.on {border:3px solid red }
+
+
+
+
+
+
+/** 화면 크기가 1200px보다 커졌을때*******/
+@media (min-width:1200px) {
+	#header_in { width:1200px; margin:0 auto; }   
+}
+
+/** 화면 크기가 768px보다 작아졌을때*******/
+@media (max-width:768px) {
+	#header_in { min-width:500px;} 
+
+	header { height:60px; }   
+	header h1 { float:left; margin-top:17px;}	
+	header h1 a { width:90px; height:26px;  }	
+	header ul{ margin-top:20px;}
+	header ul li {margin-left:15px; }
+	header ul li a{ color:#fff; font-size:0.85em;   }
+
+	.navInside:after { height:8px; margin:0 7px 0 15px; }
+	.navLocale { margin-left:5px;}
+
+}

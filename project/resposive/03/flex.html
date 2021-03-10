@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2,">
+  <title>Flexbox Layout</title>
+  <style>
+  *{margin:0; padding:0;}
+ header { height:45px; background:#33353F; }
+ #com { height:35px; background:#194C96; }
+
+ #conWrap { display:flex; flex-direction:column; }
+	.con_up {  display:flex; flex:2; }
+		.s1_1{  flex:1; background:#4AB8BC; }
+		.con_down_r { display:flex; flex-direction:column; flex:1;}
+			.s1_2 { flex:1; background:#589DD2; }
+			.s1_3 { flex:1; background:#FF912F; }
+
+	.con_down { display:flex; flex:1; }
+			.s2_1 { flex:1; background:#589DD2; }
+			.s2_2 { flex:1; background:#8DCA35; }
+
+ footer {position:fixed; bottom:0; left:0; right:0; height:100px; background:#222222;}
+
+  </style>
+   <script src="js/jquery-1.12.4.min.js"></script>
+	<script>
+	  $(function(){
+		var footerTop =$('footer').offset().top;    //A.offset().top -A의 제일 윗부분 좌표값을 알아온다
+		console.log('푸터의 y축 위치값은? '+footerTop);
+
+		var conWrap =$('#conWrap').offset().top; 
+		console.log('conWrap의 y축 위치값은? '+conWrap);
+				
+		var conWrapH = footerTop - conWrap;  
+		console.log('conWrap의 세로 길이는? '+conWrapH);
+
+		$('#conWrap').css('height',conWrapH); 
+
+		$(window).resize(function(){
+			var footerTop =$('footer').offset().top; 
+			var conWrap =$('#conWrap').offset().top; 
+			var conWrapH = footerTop - conWrap;
+			$('#conWrap').css('height',conWrapH); 
+		});
+	  });
+	</script>
+ </head>
+ <body>
+<div id="wrap">
+	<header>헤더</header>  	
+	<div id="com">한줄광고 들어갑니다</div>
+
+	<div id="conWrap">
+		<div class="con_up">
+			<section class="s1_1"><h1>본문1-1</h1></section>
+			<div class="con_down_r">
+				<section class="s1_2"><h1>본문1-2</h1></section>
+				<section class="s1_3"><h1>본문1-3</h1></section>
+			</div>
+		</div>
+		<div class="con_down">
+			<section class="s2_1"><h1>본문2-1</h1></section>
+			<section class="s2_2"><h1>본문2-1</h1></section>
+		</div>
+	</div><!--conWrap END--> 
+
+	<footer>푸터</footer>
+</div>
+ </body>
+</html>

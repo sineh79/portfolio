@@ -1,0 +1,59 @@
+@charset "utf-8";
+* {margin:0; padding:0;}
+body { font-size:; font-family:; text-align:center; background:#0a222B}
+li { list-style-type: none; }
+
+#cover { 
+	background-image:url('../images/cover.png'); 
+	background-size:cover;
+	background-position:bottom; 
+	padding:10% 0;
+	color:#dbe9fd; }
+#cover span { font-family:arial,sans-serif; font-size:0.2em; display: block;}
+#cover h1 { font-size:10vw; font-family: 'Leckerli One', cursive; font-weight:normal; line-height:1; transition:font-size 0.5s }
+
+
+#wrap { padding:0 20px; max-width:960px; margin:0 auto;}
+  .timeline { position:relative; padding-bottom: 100px; } 
+  .timeline:after{ position:absolute; content:''; top:30px; left:50%; bottom:10px; margin-left:-3px; width:6px; background:rgba(0,0,0,0.5); z-index:-1;  border-radius:3px; } 
+
+	.timeline-item { margin-top:70px; }
+	  .card  { background:rgba(0,0,0,0.6); padding:0 20px 20px; border-radius:30px; color:#acacac;border:5px solid #134253 }
+		.card-icon { width:70px; margin:-35px 30px 0; }
+		.card-title { color:#1E90FF; font-size:20vw; line-height:1; font-family:Impact; margin:20px; }
+		.card-definition { margin:20px;  }
+		.card-definition dt { font-size:25px; color:#ddd; margin-bottom:20px;}
+		.card-definition dt span { display:block; font-size:0.7em; color:#1E90FF;}
+		.card-definition dd {font-size:20px; }
+
+
+/*화면 크기가 768px보다 컸을때*/
+@media (min-width:768px) {
+	
+	#cover { padding:7% 0;}	
+	#cover h1 { font-size:8vw; }
+
+	.timeline:after{ top:30px; bottom:10px;  width:6px; background:#1E90FF; } 
+
+	.timeline-item { margin-top:70px; width:50%; padding:0 20px; box-sizing:border-box; text-align:right;  }
+
+	.timeline-item:nth-child(even){
+		margin-top:-150px;
+		margin-left:auto;   
+		margin-bottom:-200px;   /*내가 갖고 있는 마진 영역을 -로 만들면 밑에 있던 요소가 올라옴*/
+		text-align: left;
+	}
+	/*:nth-child(even) -짝수/ :nth-child(odd)-홀수 */
+
+	  .card  { position: relative; }
+		.card-icon { position:absolute; top:0; left:0;}
+	.timeline-item:nth-child(even) .card-icon { position:absolute; top:0; left:auto; right:0; }
+		
+		.card-title { position:relative; font-size:10vw; display:inline-block; }
+
+		.card-title:after { position:absolute; top:50%; right:-60px; content:''; width:10px; height:10px; background:#0a222b; border:7px solid #1E90FF; border-radius:50%; transform:translate(50%,-50%);}
+
+	.timeline-item:nth-child(even) 	.card-title:after { left:-60px; transform:translate(-50%,-50%);}
+
+		.card-definition { margin:20px; }
+}
